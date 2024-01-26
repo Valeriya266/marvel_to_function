@@ -1,8 +1,8 @@
 import { Component } from 'react';
+import MarvelService from '../../services/MarvelService';
 
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
-import MarvelService from '../../services/MarvelService';
 
 class RandomChar extends Component {
     state = {
@@ -14,6 +14,21 @@ class RandomChar extends Component {
     }
 
     marvelService = new MarvelService();
+
+    updateChar = () => {
+        const id = 1011005;
+        this.marvelService
+            .getCharacter(id)
+            .then(res => {
+                this.setState({
+                    name: res.data.results[0].name,
+                    description: res.data.results[0].description,
+                    thumbnail: res.data.results[0].thumbnail.path + '.' + res.data.results[0].thumbnail.extension,
+                    homepage: res.data.results[0].urls[0].url,
+                    wiki: res.data.results[0].urls[1].url 
+                })
+            })
+    }
 
     render () {
     const {name, description, thumbnail, homepage, wiki} = this.state;
