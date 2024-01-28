@@ -5,7 +5,6 @@ import MarvelService from '../../services/MarvelService';
 
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
-import ErrorMessage from '../errorMessage/ErrorMessage';
 
 class RandomChar extends Component {
     constructor(props) {
