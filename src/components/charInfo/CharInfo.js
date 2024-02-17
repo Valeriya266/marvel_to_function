@@ -7,7 +7,6 @@ import Skeleton from '../skeleton/Skeleton';
 
 import './charInfo.scss';
 import thor from '../../resources/img/thor.jpeg';
-import MarvelService from '../../services/MarvelService';
 
 class CharInfo extends Component {
     state = {
